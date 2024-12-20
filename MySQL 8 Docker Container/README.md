@@ -2,41 +2,6 @@
 
 Este proyecto proporciona dos formas de desplegar una base de datos MySQL 8 personalizada utilizando Docker: una con un `Dockerfile` y otra utilizando `Docker Compose`. Ambas opciones incluyen configuraciones predeterminadas para crear un contenedor MySQL con un usuario, contraseña y base de datos predeterminados, y con persistencia de datos mediante un volumen.
 
-## Dockerfile
-
-### Contenido del `Dockerfile`
-
-```Dockerfile
-# Usar la imagen oficial de MySQL 8 como base
-FROM mysql:8
-
-# Establecer las variables de entorno para MySQL
-ENV MYSQL_ROOT_PASSWORD=myrootpassword
-ENV MYSQL_DATABASE=mydatabase
-ENV MYSQL_USER=myuser
-ENV MYSQL_PASSWORD=mypassword
-
-# Crear un volumen para persistencia de datos
-VOLUME /var/lib/mysql
-
-# Exponer el puerto 3306 para MySQL
-EXPOSE 3306
-
-# El contenedor se ejecutará con la configuración predeterminada de MySQL
-CMD ["mysqld"]
-```
-
-### Explicación del Dockerfile
-
-1. **`FROM mysql:8`**: Utiliza la imagen oficial de MySQL 8 como base.
-2. **`ENV`**:
-    - `MYSQL_ROOT_PASSWORD`: Contraseña del usuario `root` de MySQL.
-    - `MYSQL_DATABASE`: Nombre de la base de datos que se crea automáticamente al iniciar el contenedor.
-    - `MYSQL_USER` y `MYSQL_PASSWORD`: Se crean un usuario personalizado con su respectiva contraseña.
-3. **`VOLUME /var/lib/mysql`**: Crea un volumen persistente para almacenar los datos de la base de datos, asegurando que los datos no se pierdan si el contenedor se elimina.
-4. **`EXPOSE 3306`**: Expone el puerto `3306`, el puerto por defecto de MySQL, para que puedas conectarte al contenedor desde tu máquina local.
-5. **`CMD ["mysqld"]`**: El contenedor ejecutará el servicio de MySQL al iniciar.
-
 ## Instrucciones para Dockerfile
 
 ### Paso 1: Construir la imagen
