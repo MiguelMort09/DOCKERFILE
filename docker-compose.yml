@@ -1,0 +1,17 @@
+services:
+  mysql:
+    container_name: mysql
+    build: .
+    environment:
+      MYSQL_ROOT_PASSWORD: devsoft09
+      MYSQL_DATABASE: portfolio
+      MYSQL_USER: devmort
+      MYSQL_PASSWORD: devSoftMort09
+    volumes:
+      - mysql-data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+volumes:
+  mysql-data:
+    driver: local
