@@ -1,17 +1,16 @@
 services:
   mysql:
     container_name: mysql
-    build: .
+    image: mysql:8
     environment:
-      MYSQL_ROOT_PASSWORD: devsoft09
-      MYSQL_DATABASE: portfolio
-      MYSQL_USER: devmort
-      MYSQL_PASSWORD: devSoftMort09
+      MYSQL_ROOT_PASSWORD: myrootpassword
+      MYSQL_DATABASE: mydatabase
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: mypassword
     volumes:
       - mysql-data:/var/lib/mysql
     ports:
       - "3306:3306"
-
 volumes:
   mysql-data:
     driver: local

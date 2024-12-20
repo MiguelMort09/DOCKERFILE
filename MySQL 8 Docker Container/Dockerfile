@@ -2,10 +2,10 @@
 FROM mysql:8
 
 # Establecer las variables de entorno para MySQL
-ENV MYSQL_ROOT_PASSWORD=devsoft09
-ENV MYSQL_DATABASE=portfolio
-ENV MYSQL_USER=devmort
-ENV MYSQL_PASSWORD=devSoftMort09
+ENV MYSQL_ROOT_PASSWORD myrootpassword
+ENV MYSQL_DATABASE mydatabase
+ENV MYSQL_USER myuser
+ENV MYSQL_PASSWORD mypassword
 
 # Crear un volumen para persistencia de datos
 VOLUME /var/lib/mysql
